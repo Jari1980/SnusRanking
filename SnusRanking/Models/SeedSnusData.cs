@@ -15,7 +15,6 @@ namespace SnusRanking.Models
             {
                 if (context.Snus.Any())
                 {
-                    Console.WriteLine("mmm not right");
                     return;
                 }
 
