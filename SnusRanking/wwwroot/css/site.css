@@ -1,31 +1,95 @@
+
+
+
+.main {
+    margin-top: 50px;
+    text-align: center
+}
+
+.subHeader {
+    margin-left: -150px;
+    color: #81a0d1;
+    font-family: 'Segoe Script';
+}
+
+.heading {
+    margin-top: -30px;
+    font-size: 6rem;
+    color: #81a0d1;
+    text-shadow: 5px 5px 0 #258cfb, 10px 10px 0 #808080;
+    animation: shadow-dance 2s infinite;
+}
+
+@keyframes shadow-dance {
+    0%, 100% {
+        text-shadow: 5px 5px 0 #258cfb, 10px 10px 0 #80d4ff;
+    }
+
+    50% {
+        text-shadow: -5px -5px 0 #258cfb, -10px -10px 0 #2f005e;
+    }
+}
+
+.bg {
+    animation: slide 4s ease-in-out infinite alternate;
+    background-image: linear-gradient(45deg, #258cfb 50%, #fff 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 5s;
+}
+
+.bg3 {
+    animation-duration: 6s;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+    color: var(--bs-secondary-color);
+    text-align: end;
 }
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    text-align: start;
 }
