@@ -26,20 +26,13 @@ namespace SnusRanking.Controllers
             ViewBag.snusFromViewBag = snusInDb;
 
             Snus snusWithNameLongestName = _db.Snus.OrderByDescending(x => x.Name.Length).ToList().FirstOrDefault();
-            TempData["tempDataLongestName"] = snusWithNameLongestName.Name;
-
-            if (HttpContext.Session.Get<Snus>(SessionKey) == default)
-            {
-                HttpContext.Session.Set<Snus>(SessionKey, new Snus());
-            }
-            Snus sessionObject = HttpContext.Session.Get<Snus>(SessionKey);
+            TempData["tempDataLongestName"] = snusWithNameLongestName.Name.ToString();
+           
             Snus firstSnus = _db.Snus.OrderBy(x => x.Id).FirstOrDefault();
-            sessionObject.Id = firstSnus.Id;
-            sessionObject.Name = firstSnus.Name;
-            sessionObject.Flavor = firstSnus.Flavor;
-            sessionObject.Pic = firstSnus.Pic;
-            
-            return View();
+            HttpContext.Session.Set<Snus>(SessionKey, firstSnus);
+            Snus snusFromSessionObject = HttpContext.Session.Get<Snus>(SessionKey);
+
+            return View(snusFromSessionObject);
         }
 
         public IActionResult Privacy()
