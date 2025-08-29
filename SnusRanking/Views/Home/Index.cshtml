@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SnusRanking.Models.Snus;
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -9,5 +10,14 @@
 <div class="main">
     <p class="subHeader">not without my</p>
     <h1 class="heading">Snus</h1>
+    <div class="querieContainer">
+        <h1 class="queriesFronPage" style="margin-top: 100px; margin-bottom: 50px; text-align: center">Queries, just because</h1>
+        <h3 class="queriesFronPage"><b>Amount of snus in DB, passed from ViewBag:</b></h3>
+        <h3 class="queriesFronPage" style="color: darkgrey;">@ViewBag.snusFromViewBag</h3>
+        <h3 class="queriesFronPage"><b>Snus with longest name in DB, passed from TempData:</b></h3>
+        <h3 class="queriesFronPage" style="color: darkgrey;">@TempData["tempDataLongestName"]</h3>
+        <h3 class="queriesFronPage"><b>First snus in DB, sessionObject passed to view:</b></h3>
+        <h3 class="queriesFronPage" style="color: darkgrey;">@Model.Name with DB id @Model.Id</h3>
+    </div>
 </div>
 

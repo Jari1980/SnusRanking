@@ -3,13 +3,24 @@
 
 .main {
     margin-top: 50px;
-    text-align: center
+    text-align: center;
 }
 
 .subHeader {
     margin-left: -150px;
     color: #81a0d1;
     font-family: 'Segoe Script';
+}
+
+.querieContainer {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.queriesFronPage {
+    color: #2a83b0;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: left;
 }
 
 .heading {
