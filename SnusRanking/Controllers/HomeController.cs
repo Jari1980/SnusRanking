@@ -35,6 +35,13 @@ namespace SnusRanking.Controllers
             return View(snusFromSessionObject);
         }
 
+        public IActionResult Rank()
+        {
+            List<Snus> snus = _db.Snus.ToList();
+
+            return View(snus);
+        }
+
         public IActionResult Privacy()
         {
             return View();
