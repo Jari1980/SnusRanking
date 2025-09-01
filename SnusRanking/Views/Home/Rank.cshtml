@@ -1,0 +1,19 @@
+﻿
+@model List<Snus>
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div class="main" style="background: white">
+    <h1 class="heading">Rank The Snus</h1>
+    <div class="rankMain">
+        <div class="leftRank"></div>
+        <div class="rightRank"></div>
+        @*Testing data passed*@
+        @foreach(var item in Model)
+        {
+            <p>@item.Name</p>
+        }
+    </div>
+</div>

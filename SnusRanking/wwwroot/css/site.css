@@ -1,5 +1,16 @@
 
+.leftRank, .rightRank {
+    width: 400px;
+    min-height: 500px;
+    margin: 40px;
+    border: 1px #2f005e;
+}
 
+.rankMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .main {
     margin-top: 50px;
