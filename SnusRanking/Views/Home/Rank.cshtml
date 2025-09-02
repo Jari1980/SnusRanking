@@ -1,4 +1,5 @@
 ﻿
+
 @model List<Snus>
 
 <div class="bg"></div>
@@ -8,12 +9,12 @@
 <div class="main" style="background: white">
     <h1 class="heading">Rank The Snus</h1>
     <div class="rankMain">
-        <div class="leftRank"></div>
+        <div class="leftRank">
+            @foreach(var item in Model)
+            {
+                <div class="list" draggable="true"> <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(item.Pic))" width="300"/> </div>
+            }
+        </div>
         <div class="rightRank"></div>
-        @*Testing data passed*@
-        @foreach(var item in Model)
-        {
-            <p>@item.Name</p>
-        }
     </div>
 </div>

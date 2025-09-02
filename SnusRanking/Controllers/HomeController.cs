@@ -4,6 +4,7 @@ using SnusRanking.Data;
 using SnusRanking.Helper;
 using SnusRanking.Models;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace SnusRanking.Controllers
 {
@@ -38,7 +39,7 @@ namespace SnusRanking.Controllers
         public IActionResult Rank()
         {
             List<Snus> snus = _db.Snus.ToList();
-
+            
             return View(snus);
         }
 
