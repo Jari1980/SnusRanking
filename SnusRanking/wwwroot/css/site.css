@@ -1,9 +1,16 @@
 
+.list{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    cursor: grab;
+}
+
 .leftRank, .rightRank {
-    width: 400px;
-    min-height: 500px;
+    width: 340px;
+    min-height: 1400px;
     margin: 40px;
-    border: 1px #2f005e;
+    border: 1px solid #3f005e;
 }
 
 .rankMain {
