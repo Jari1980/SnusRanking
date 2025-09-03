@@ -1,6 +1,4 @@
-﻿
-
-@model List<Snus>
+﻿@model List<Snus>
 
 <div class="bg"></div>
 <div class="bg bg2"></div>
@@ -9,12 +7,44 @@
 <div class="main" style="background: white">
     <h1 class="heading">Rank The Snus</h1>
     <div class="rankMain">
-        <div class="leftRank">
-            @foreach(var item in Model)
+        <div id="leftRank">
+            @foreach (var item in Model)
             {
-                <div class="list" draggable="true"> <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(item.Pic))" width="300"/> </div>
+                <div class="list" id="@item.Id" draggable="true"> <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(item.Pic))" width="300" /> </div>
             }
         </div>
-        <div class="rightRank"></div>
+        <div id="rightRank"></div>
     </div>
 </div>
+
+
+@section Scripts {
+    <script>
+        let snus = document.getElementsByClassName("list");
+        let leftBox = document.getElementById("leftRank");
+        let rightBox = document.getElementById("rightRank");
+
+        for(list of snus){
+            list.addEventListener("dragstart", function(e){
+                let selected = e.currentTarget;
+                //console.log("mmm");
+
+                rightBox.addEventListener("dragover", function(e){
+                    e.preventDefault();
+                });
+                rightBox.addEventListener("drop", function(e){
+                    rightBox.append(selected);
+                    selected = "";               
+                });
+                
+                leftBox.addEventListener("dragover", function(e){
+                     e.preventDefault();
+                 });
+                leftBox.addEventListener("drop", function(e){
+                    leftBox.append(selected);
+                    selected = "";
+                 });
+            });
+        }
+    </script>
+}
