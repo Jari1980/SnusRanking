@@ -7,13 +7,23 @@
 <div class="main" style="background: white">
     <h1 class="heading">Rank The Snus</h1>
     <div class="rankMain">
-        <div id="leftRank">
+        <h3 class="rankHeading">Broccoli Tier</h3>
+        <div id="rank1"></div>
+        <div id="break"></div>
+        <h3 class="rankHeading">Very Nice</h3>
+        <div id="rank2"></div>
+        <div id="break"></div>
+        <h3 class="rankHeading">Ok</h3>
+        <div id="rank3"></div>
+        <div id="break"></div>
+        <h3 class="rankHeading">Selection from DB</h3>
+        <div id="selection">
             @foreach (var item in Model)
             {
-                <div class="list" id="@item.Id" draggable="true"> <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(item.Pic))" width="300" /> </div>
+                <div class="list" id="@item.Id" draggable="true"> <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(item.Pic))" width="200" height="100"/> </div>
             }
         </div>
-        <div id="rightRank"></div>
+        
     </div>
 </div>
 
@@ -21,27 +31,45 @@
 @section Scripts {
     <script>
         let snus = document.getElementsByClassName("list");
-        let leftBox = document.getElementById("leftRank");
-        let rightBox = document.getElementById("rightRank");
+        let rank1Box = document.getElementById("rank1");
+        let rank2Box = document.getElementById("rank2");
+        let rank3Box = document.getElementById("rank3");
+        let selectionBox = document.getElementById("selection");
 
         for(list of snus){
             list.addEventListener("dragstart", function(e){
                 let selected = e.currentTarget;
                 //console.log("mmm");
 
-                rightBox.addEventListener("dragover", function(e){
+                selectionBox.addEventListener("dragover", function(e){
                     e.preventDefault();
                 });
-                rightBox.addEventListener("drop", function(e){
-                    rightBox.append(selected);
+                selectionBox.addEventListener("drop", function(e){
+                    selectionBox.append(selected);
                     selected = "";               
                 });
-                
-                leftBox.addEventListener("dragover", function(e){
+
+                rank1Box.addEventListener("dragover", function(e){
                      e.preventDefault();
                  });
-                leftBox.addEventListener("drop", function(e){
-                    leftBox.append(selected);
+                rank1Box.addEventListener("drop", function(e){
+                    rank1Box.append(selected);
+                    selected = "";
+                 });
+
+                 rank2Box.addEventListener("dragover", function(e){
+                     e.preventDefault();
+                 });
+                rank2Box.addEventListener("drop", function(e){
+                    rank2Box.append(selected);
+                    selected = "";
+                 });
+
+                 rank3Box.addEventListener("dragover", function(e){
+                     e.preventDefault();
+                 });
+                rank3Box.addEventListener("drop", function(e){
+                    rank3Box.append(selected);
                     selected = "";
                  });
             });
