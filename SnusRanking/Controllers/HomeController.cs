@@ -43,7 +43,7 @@ namespace SnusRanking.Controllers
             return View(snus);
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
